@@ -1,0 +1,87 @@
+/*? === Globals === */
+/*? == Textes de la page == */
+.formation-text {
+  margin: 0 20px;
+}
+/*? == <li> de la page == */
+.formation-text_li {
+  margin: 0 40px;
+}
+/*? == Sous <li> de la page == */
+.li-bis {
+  margin: 0 60px
+}
+/*? == Paragraphe central (besoin d'espace) == */
+.space {
+  margin: 20px;
+}
+main {
+  padding-bottom: 2rem;
+}
+/* === Partie haute === */
+/*? == Lien de l'inscription */
+.formation-top_inscription {
+  margin: 20px auto;
+  padding: 5px;
+  width: 90%;
+  background-color: #464646;
+  border: 2px solid #FFF;
+  border-radius: 6px;
+  text-align: center;
+  transition: ease-in-out 0.3s;
+  cursor: pointer;
+}
+.formation-top_inscription a {
+  display: inline-block;                           /* Permet de pouvoir mettre width et height à 100% */
+  width: 100%;                                     /* Ce qui permet d'avoir le lien sur toute la div */
+  height: 100%;                                    /* Plutôt que seulement sur le texte */
+}
+.formation-top_inscription:hover {
+  border: none;
+}
+img {
+  display: block;
+  width: 90%;
+  margin: 20px auto;
+  border-radius: 20px;
+}
+
+/* === Partie basse === */
+.formation-bottom {
+  padding-bottom: 30px
+}
+/*? == 2e sous-titre == */
+.title-bis {
+  margin: 20px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*! === Media Query === */
+@media screen and (max-width: 350px) {                            /*! Jusqu'à 775px */
+}
+  
+  @media screen and (max-width: 775px) {                          /*! Jusqu'à 775px */
+}
+  
+  @media screen and (min-width: 776px) {                          /*! Entre 776px et 1000px */
+}
+  
+  @media screen and (min-width: 1000px) {                         /*! A partir de 1000px */
+}
+  
+  @media screen and (min-width: 1200px) {                         /*! A partir de 1200px */
+}
+  
+  @media screen and (min-width: 1500px) {                         /*! A partir de 1200px */
+}

@@ -1,0 +1,201 @@
+/*? === Page accueil === */
+/*? == Partie haute == */
+/*? = Logos = */
+.home-top_logo {
+  display: flex;                                                /* Disposition en flex */
+  justify-content: center;                                      /* Centrer les éléments */
+  padding: 4% 0;                                                /* Padding pour isoler les logos du header et h1 */
+}
+/*? = Images = */
+.home-top_logo img {
+  margin: 0 8%;                                                 /* Marge entre les images */
+}
+.img-hover:hover {
+  transform: scale(1.4);                                        /* Augmenter la taille de l'image au survol */
+  transition: 0.5s;                                             /* Durée de l'animation */
+}
+/*? = Titre = */
+.home-title {
+  display: flex;                                                /* Disposition en flex */
+  justify-content: center;                                      /* Positionnement au centre */
+  align-items: center;                                          /* Alignement au centre */
+  flex-direction: column;                                       /* Orientation verticale */
+  padding: 4% 0;                                                /* Padding pour isoler le menu title des logos et des formations */
+}
+/*? = Texte encadré = */
+.home-top_horaire {
+  position: relative;                                           /* Positionnement relatif pour pouvoir positionner les scotchs */
+  display: flex;                                                /* Disposition en flex */
+  justify-content: center;                                      /* Centrer les éléments */
+  align-items: center;                                          /* Alignement au centre */
+  flex-direction: column;                                       /* Orientation verticale */
+  margin: 4% 0;                                                 /* Marge pour isoler le texte de l'annotation */
+}
+.home-top-horaire_text {
+  padding: 10px;                                                /* Padding pour isoler le texte de l'annotation */
+  background-color: #D1CAC9;                                  /* Couleur de fond */
+  border: 5px solid #AFA9A8;                                  /* Bordure épaisse */
+  color: black;                                               /* Couleur du texte */
+}
+.home-top_horaire img {
+  position: absolute;                                           /* Positionnement absolu pour pouvoir les positionner par rapport au texte */
+  left: 50%;                                                    /* Positionnement au centre */
+  transform: translateX(-50%);                                  /* Décalage de la moitié de la largeur de l'image */
+}
+.top-scotch_up {
+  z-index: -1;                                                  /* Positionnement en arrière plan */
+  top: 0;                                                       /* Positionnement en haut */
+}
+.top-scotch_down {
+  z-index: -1;                                                  /* Positionnement en arrière plan */
+  bottom: 0;                                                    /* Positionnement en bas */
+}
+/*? = Annotation = */
+.home-title h3 {
+  text-align: center;                                           /* Positionnement au centre */
+}
+h3 span {
+  text-decoration: underline;                                   /* Souligner le texte */
+}
+
+/*? == Partie du milieu == */
+/*? = Container des 3 formations = */
+.home-middle_formations {
+  display: flex;                                                /* Disposition en flex */
+  padding: 4% 0;                                                /* Padding pour isoler les formations de l'annotation et des liens utiles */
+}
+/*? = Container d'une formation = */
+.home-middle_formation {
+  display: flex;                                                /* Disposition en flex */
+  align-items: center;                                          /* Alignement au centre */
+  flex-direction: column;                                       /* Orientation en colonnes */
+  margin: 2% 0;                                                 /* Marge pour isoler les formations les unes des autres */
+  padding: 10px;
+  width: 40%;                                                   /* Largeur des contenants */
+}
+/*? = Survol d'un lien = */
+.home-middle_formation a:hover {
+  text-decoration: underline;                                   /* Souligner le texte */
+}
+.home-middle_formation img {
+  
+}
+
+/*? == Partie basse == */
+/*? = Container des liens utiles = */
+.home-bottom_links {
+  display: flex;                                                /* Disposition en flex */
+  flex-direction: column;                                       /* Orientation en colonnes */
+  align-items: center;                                          /* Alignement au centre */
+  margin: 2% 0;                                                 /* Marge pour isoler les liens des formations */
+  padding: 5px;                                                 /* Padding pour écarter le contenu du cadre */
+  width: 85%;                                                   /* Largeur du cadre (par rapport au container) */
+  background-color: rgba(41, 41, 41, 0.5);                    /* Couleur de fond et opacité*/
+  border: 2px solid rgb(77, 77, 77);                          /* Bordure */
+  border-radius: 15px;                                          /* Arrondir les coins */
+  text-align: center;                                           /* Centrer le texte */
+}
+/*? = Images = */
+.home-bottom_links img {
+  margin: 10px;                                                 /* Espacement des images entres elles et avec le texte */
+  width: 90px;                                                  /* Largeur des images */
+  max-height: 70px;                                             /* Hauteur des images */
+}
+/*? = Survol d'un lien = */
+.home-bottom_links:hover {
+  transform: scale(1.1);                                        /* Augmenter la taille de l'image au survol */
+  transition: 0.5s;                                             /* Durée de l'animation */
+  background-color: rgba(179, 179, 179, 0.6);                 /* Couleur de fond et opacité*/
+}
+/*? = Container des 2 images sur un lien = */
+.home-bottom_img {
+  display: flex;                                                /* Disposition en flex */
+  justify-content: center;                                      /* Centrer les éléments */
+  align-items: center;                                          /* Alignement au centre */
+  width: 100%;                                                  /* Largeur du container */
+}
+
+/*! === Media Query === */
+@media screen and (max-width: 350px) {                          /*! Jusqu'à 775px */
+
+  }
+
+  @media screen and (max-width: 775px) {                        /*! Jusqu'à 775px */
+/*? === Page accueil === */
+/*? == Partie haute */
+/*? = Images = */
+.home-top_logo img, .home-middle_formation img, .formation-top img {
+  width: 60px;                                                  /* Largeur des images */
+  height: 60px;                                                 /* Hauteur des images */
+}
+/*? = Texte encadré = */
+.home-top_horaire {
+  padding: 5% 0;                                                /* Permet d'écarter les scotchs du texte */
+}
+/*? == Partie du milieu == */
+/*? = Container des 3 formations = */
+.home-middle_formations {                                              /* Disposition en flex */
+  flex-direction: column;                                          /* Orientation en colonnes */
+  justify-content: space-between;                                /* Écartement des éléments */
+  align-items: center;                                      /* Alignement en haut */
+}
+}
+
+  @media screen and (min-width: 776px) {                        /*! Entre 776px et 1000px */
+/*? === Page accueil === */
+/*? == Partie haute */
+/*? = Images = */
+.home-top_logo img, .home-middle_formation img, .formation-top img {
+  width: 80px;                                                  /* Largeur des images */
+  height: 80px;                                                 /* Hauteur des images */
+}
+/*? = Texte encadré = */
+.home-top_horaire {
+  padding: 4% 0;                                                /* Permet d'écarter les scotchs du texte */
+}
+/*? == Partie du milieu == */
+/*? = Container des 3 formations = */
+.home-middle_formations {                                              /* Disposition en flex */
+  flex-direction: row;                                          /* Orientation en colonnes */
+  justify-content: space-around;                                /* Écartement des éléments */
+  align-items: flex-start;                                      /* Alignement en haut */
+}
+}
+
+  @media screen and (min-width: 1000px) {                       /*! A partir de 1200px */
+/*? === Page accueil === */
+/*? == Partie haute */
+/*? = Images = */
+.home-top_logo img, .home-middle_formation img, .formation-top img {
+  width: 100px;                                                 /* Largeur des images */
+  height: 100px;                                                /* Hauteur des images */
+}
+/*? = Texte encadré = */
+.home-top_horaire {
+  padding: 3% 0;                                                /* Permet d'écarter les scotchs du texte */
+}
+}
+
+@media screen and (min-width: 1200px) {                       /*! A partir de 1200px */
+/*? === Page accueil === */
+/*? == Partie haute */
+/*? = Images = */
+.home-top_logo img, .home-middle_formation img, .formation-top img {
+  width:150px;                                                  /* Largeur des images */
+  height: 150px;                                                /* Hauteur des images */
+}
+/*? = Texte encadré = */
+.home-top_horaire {
+  padding: 2% 0;                                                /* Permet d'écarter les scotchs du texte */
+}
+}
+
+@media screen and (min-width: 1500px) {                         /*! A partir de 1200px */
+/*? === Page accueil === */
+/*? == Partie haute */
+/*? = Images = */
+.home-top_logo img, .home-middle_formation img, .formation-top img {
+  width:180px;                                                  /* Largeur des images */
+  height: 180px;                                                /* Hauteur des images */
+}
+  }

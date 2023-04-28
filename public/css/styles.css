@@ -1,0 +1,697 @@
+/*? === === Globals === ===*/
+body {
+  background-image: url("../images/fond.jpg");                  /* Image de fond */
+  background-position: center;                                  /* Position de l'image */
+  background-size: contain;                                     /* Taille de l'image */
+  color: white;                                               /* Couleur du texte */
+}
+h1, h2, h3 {
+  text-align: center;
+}
+h1, h2, h3, p, a {
+  font-family: 'Futura LT', sans-serif;
+}
+a, a:visited {
+  color: white;
+  text-decoration: none;                                        /* Suppression des soulignements */
+}
+#green {
+  color: #049604;                                                 /*! Couleur verte des liens tarifs */
+  text-decoration: underline;                                       /*! Pas trouvé d'autres solutions */
+}
+#blue {
+  color: #00bfff;                                                 /*! Couleur bleu des liens tarifs */
+  text-decoration: underline;                                       /*! Pas trouvé d'autres solutions */
+}
+.main-container {
+  margin: 60px auto 0 auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+h1, h2, h3 {
+  font-weight: 400;
+  margin: 20px;
+}
+/*? == Paragraphe central (besoin d'espace) == */
+.space {
+  margin: 20px;
+}
+/*? == Texte italique == */
+.underline {
+  text-decoration: underline;
+}
+/*? == Texte centré == */
+.center {
+  text-align: center;
+}
+/*? == Texte plus gras et italic == */
+.italic-bold {
+  font-weight: 700;
+  font-style: italic;
+}
+.blue {
+  color: #00bfff;
+}
+.gray {
+  color: #8f8f8f;
+  text-shadow: 0.5px 0.5px 1px black;                                  /* Ombre du texte pour faire ressortir sur le fond noir */
+}
+
+/*? === === Footer === === */
+footer {
+  height: 4rem;
+  background-color: rgba(10, 10, 10, 0.94);                       /* Couleur de fond et opacité */
+  width: 100vw;
+
+}
+footer p {
+  text-align: center;
+}
+
+/*? === === Gestion du modal de contact === === */
+/*? === Boîte principale === */
+.modal {
+  display: none;                                                /* Masquez la boîte de dialogue par défaut */
+  position: fixed;                                              /* Positionnement fixed */
+  left: 0;                                                      /* Positionnement à gauche */
+  top: 60px;                                                    /* Positionnement en haut (60px car navBar fixed) */
+  margin: 0 0 5% 0;                                             /* Marge en bas */
+  z-index: 1;                                                   /* Placez la boîte de dialogue derrière tous les autres éléments */
+  width: 100%;                                                  /* Largeur totale */
+  height: 100%;                                                 /* Hauteur totale */
+  overflow: auto;
+}
+/*? === Style du modal agrandie === */
+#modal-form {
+  display: block;                                               /* Afficher l'image au clic (javascript) */
+  position: absolute;                                           /* Permet l'affichage en absolue top et left */
+  left: 50%;                                                    /* Positionnement au centre de la page */
+  transform: translateX(-50%);                                  /* Correction du centrage 50% du contenu vers la gauche et le haut */
+  padding-bottom: 15%;                                          /* Marge en bas de la boîte de dialogue */
+}
+/*? Style de l'élément de background de la boîte de dialogue modale */
+#modal-background {
+  position: fixed;                                              /* Positionnement fixed */
+  top: 0;                                                       /*? Positionnement tout en haut           */
+  left: 0;                                                      /*? avec une taille de 100%               */
+  width: 100%;                                                  /*? pour qu'il prenne tout le window      */
+  height: 100%;                                                 /*? et tout à gauche                      */
+  z-index: -1;                                                  /* Pour qu'il reste en dessous de la boîte de dialogue */
+  background-color: rgba(0,0,0,0.8);                          /* Couleur de fond avec opacité à 0.8 */
+}
+
+
+
+
+
+/*! === Media Query === */
+@media screen and (max-width: 350px) {                          /*! Jusqu'à 775px */
+/*? === Gestion du modal de contact === */
+/*? == Partie haute == */
+/*? = Images de la partie haute = */
+.modal-up img {
+  display: none;                                                /* Masquer les images */
+}
+}
+
+@media screen and (max-width: 775px) {                          /*! Jusqu'à 775px */
+/*? === === Globals === === */
+.main-container {
+  width: 90%;                                                   /* Largeur du container */
+}
+h1 {
+  font-size: 1.5em;                                             /* Taille du titre */
+}
+h2 {
+  font-size: 1em;                                               /* Taille des sous-titres */
+}
+h3 {
+  font-size: 0.8em;                                             /* Taille des sous-sous-titres */
+}
+p, a, li {
+  font-size: 0.6em;                                             /* Taille du texte */
+}
+/*? == Texte plus gros == */
+.large {
+  font-size: 0.8rem;
+}
+/*? === Header === */
+/*? == Gestion du header large == */
+header, .header-large, .large-main_link {
+    display: none;                                              /* Masquer le header large */
+}
+
+/*? === Menu small === */
+/*? == Menu burger == */
+/*? = Menu latéral = */
+.header-small {
+
+}
+.sidenav {
+    height: 100vh;                                              /* Prend toute la hauteur */
+    width: 100vw;                                               /* Prend toute la largeur */
+    position: fixed;                                            /* Menu fixed */
+    z-index: 2;                                                 /* Menu par dessus tout le reste */
+    top: 0;                                                     /* Menu tout en haut */
+    left: -150vw;                                               /* Menu caché par défaut */
+    background-color: #242325;                                /* Couleur de fond */ 
+    padding-top: 5%rem;                                         /* 5% de padding par rapport au top */
+    transition: left .7s ease-out;                              /* Transition de 0.7s avec ralentissement à la fin */
+}
+/*? = Position du menu ouvert = */
+.sidenav.active {
+    left: 0;                                                    /* Position collée à gauche quand menu ouvert */
+}
+
+/*? = Placement des liens dans le burger = */
+.header-small_menus {
+    display: flex;                                              /* Affichage en flex */
+    flex-direction: row;                                        /* Affichage en ligne */
+    margin-top: 30px;                                           /* Positionnement en dessous du header (car fixed) */
+    height: 100%;                                               /* Hauteur de 100% */
+}
+/*? = Liens du burger = */
+.small-menu_block {
+  margin: 3%;                                                   /* Marge de 3% pour séparer les liens */
+  width: 95%;                                                   /* Largeur de 75% du menu (window pour le coup) */
+}
+/*? = Lien du burger = */
+.small-main_link {
+    display: flex;                                              /* Affichage en flex */
+    justify-content: center;                                    /* Centrage horizontal */
+    align-items: center;                                        /* Centrage vertical */
+    margin: 4%;                                                 /* Marge de 4% */
+    height: 5%;                                                 /* Hauteur de 5% */
+    border: 1px solid white;                                  /* Bordure blanche */
+    border-radius: 25px;                                        /* Arrondi des coins */
+    color: white;                                             /* Couleur du texte */
+    text-decoration: none;                                      /* Suppression du soulignement */
+    font-size: 1.1em;                                             /* Taille de la police */
+    font-weight: 700;                                           /* Épaisseur de la police */
+}
+.header-small_link:visited {
+  color: white;                                           /* Couleur du texte */
+}
+
+/*? = Sous lien du burger = */
+.formation-link, .inscription-link, .information-link, .tarif-link {
+  display: none;                                                /* Masquer les sous-liens par défaut */
+  padding-left: 5%;                                             /* Padding gauche de 5% */
+  text-align: left;                                             /* Alignement à gauche */
+  text-decoration: none;                                        /* Suppression du soulignement */
+  font-size: 1.1em;
+  color: white;                                               /* Couleur du texte */
+}
+.formation-link.active, .inscription-link.active, .information-link.active, .tarif-link.active {
+  display: block;
+}
+/*? = Sous lien du burger au clic = */
+.formation-link:active, .inscription-link:active, .information-link:active, .tarif-link:active {
+  text-decoration: underline;                                   /* Soulignement au clic */
+}
+
+/*? === Gestion de la barre supérieur */
+/*? == Position barre supérieur == */
+.header-small_nav {
+  display: flex;                                                /* Affichage en flex */
+  justify-content: space-between;                               /* Espacement entre les éléments */
+  align-items: center;                                          /* Centrage vertical */
+  position: fixed;                                              /* Positionnement fixe */
+  top: 0;                                                       /* Positionnement tout en haut */
+  left: 0;                                                      /* Positionnement tout à gauche */
+  right: 0;                                                     /* Positionnement tout à droite */
+  margin: auto 0;                                               /* Marge droite pour écarter 'contact' */
+  padding-right: 5vw;                                           /* Padding droit de 5vw */
+  z-index: 10;                                                  /* Barre au dessus de tout */
+  height: 60px;                                                 /* Hauteur de 60px */
+  background-color: #242325;                                  /* Couleur de fond */
+}
+.small-nav_link {
+  color: white;                                               /* Couleur du texte */
+  text-decoration: none;                                        /* Suppression du soulignement */
+  font-size: 1.2em;                                             /* Taille de la police */
+  font-weight: 700;                                             /* Épaisseur de la police */
+}
+/*? == Apparence du bouton burger == */
+.burger-icon {
+  padding-top: 5px;                                             /* Centrage vertical de l’icône burger */
+  
+  height: 100%;                                                 /* Hauteur de 100% */
+  margin: 0 10px;                                               /* Marge de 10px à gauche et à droite */
+}
+.burger-icon_bar {
+  background: transparent;
+cursor: pointer;
+border: 0;
+}
+.burger-icon span {
+  display: block;                                               /* Affichage en block */
+  position: relative;
+  width: 2.5rem;                                                /* Largeur de 2.5rem */
+  height: .5rem;                                                /* Hauteur de .5rem */
+  background-color: #717575;                                  /* Couleur de fond */
+  margin: 15% 1%;   
+  transition: all 0.3s;
+
+}
+button.active span:nth-child(1) {
+          animation: ease 0.7s top-close forwards;
+}
+button.active span:nth-child(2) {
+          animation: ease 0.7s scaled-close forwards;
+      }
+button.active span:nth-child(3) {
+          animation: ease 0.7s bottom-close forwards;
+      }
+
+
+      @keyframes top {
+        0% {
+          top: 0.72rem;
+          transform: rotate(45deg);
+        }
+        50% {
+          top: 0.72rem;
+          transform: rotate(0deg);
+        }
+        100% {
+          top: 0;
+          transform: rotate(0deg);
+        }
+      }
+      
+      @keyframes bottom {
+        0% {
+          bottom: 0.72rem;
+          transform: rotate(-45deg);
+        }
+        50% {
+          bottom: 0.72rem;
+          transform: rotate(0);
+        }
+        100% {
+          bottom: 0;
+          transform: rotate(0);
+        }
+      }
+      
+      @keyframes scaled {
+        0% {
+          transform: scale(0);
+        }
+        50% {
+          transform: scale(0);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      
+      @keyframes top-close {
+        0% {
+          top: 0;
+          transform: rotate(0);
+        }
+        50% {
+          top: .75rem;
+          transform: rotate(0);
+        }
+        100% {
+          top: 0.85rem;
+          transform: rotate(45deg);
+        }
+      }
+      
+      @keyframes bottom-close {
+        0% {
+          bottom: 0;
+          transform: rotate(0);
+        }
+        50% {
+          bottom: 0.75rem;
+          transform: rotate(0);
+        }
+        100% {
+          bottom: 0.85rem;
+          transform: rotate(-45deg);
+        }
+      }
+      
+      @keyframes scaled-close {
+        50% {
+          transform: scale(0);
+        }
+        100% {
+          transform: scale(0);
+        }
+      }
+      
+.burger-icon span:nth-child(1) {
+  animation: ease 0.7s top forwards;
+}
+
+.burger-icon span:nth-child(2) {
+  animation: ease 0.7s scaled forwards;
+}
+
+.burger-icon span:nth-child(3) {
+  animation: ease 0.7s bottom forwards;
+}
+
+/*? === Gestion du modal de contact === */
+/*? == Style du modal agrandie == */
+#modal-form {
+  width: 90%;                                                   /* Largeur totale par rapport au window */
+}
+/*? == Partie haute == */
+.modal-up {
+  display: flex;                                                /* Affichage en flex */
+  justify-content: center;                                      /* Centrer horizontalement */
+  align-items: center;                                          /* Centrer verticalement */
+}
+/*? = Partie haute textes = */
+.modal-up_infos {
+  padding: 0 15px;                                              /* Padding de 25px à gauche et à droite pour écarter les images*/
+  text-align: center;                                           /* Centrer le texte */
+}
+/*? = Images de la partie haute = */
+.modal-up img {
+  width: 90px;                                                  /* Largeur des images */
+  height: 90px;                                                 /* Hauteur des images */
+  border-radius: 50%;                                           /* Arrondir les images */
+}
+/*? == Partie du milieu == */
+.modal-middle {
+  margin: 20px 0;                                               /* Margin de 20px en haut et en bas pour écarter les parties hautes et basses */
+  text-align: center;                                           /* Centrer le texte */
+}
+/*? == Partie basse == */
+.modal-down {
+  display: flex;                                                /* Affichage en flex */
+  justify-content: center;                                      /* Centrer horizontalement */
+  align-items: flex-start;                                      /* Aligner en haut verticalement */
+  flex-wrap: wrap;                                              /* Permet de mettre les éléments le formulaire de contact en dessous des autres */
+}
+/*? = Partie basse gauche et droite = */
+.modal-down_infos, .modal-down_formation {
+  margin: 0 1%;                                                 /* Margin de 1% à gauche et à droite pour écarter les parties gauche et droite */
+  width: 48%;                                                   /* Largeur de 30% par rapport à la partie basse */
+}
+/*? = Texte de la partie basse = */
+.modal-down_text {
+  text-align: center;                                           /* Centrer le texte */
+}
+/*? = Partie basse formulaire = */
+.modal-down_contact {
+  order: 2;                                                     /* Ordre de 2 pour être en dernier */
+  margin: 25px 0;                                               /* Margin de 25px en haut pour s'écarter des parties du dessus */
+  width: 70%;                                                   /* Largeur de 40% par rapport à la partie basse */
+  border: 1px solid rgb(77, 77, 77);                          /* Bordure de 1px de couleur rgb(77, 77, 77) */
+  border-radius: 10px;                                          /* Arrondir les bords */
+}
+/*? = Partie basse formulaire titre = */
+form h2 {
+  margin-top: 10px;                                             /* Margin de 10px en haut pour s'écarter du bord du formulaire */
+  color: rgb(77, 77, 77 0,5);                                   /* Couleur du texte */
+  text-align: center;                                           /* Centrer le texte */
+  font-weight: 700;                                             /* Épaisseur du texte */
+}
+/*? = Partie basse formulaire input et textarea = */
+form input, form textarea {
+  margin: 3px 15px;                                             /* Margin des inputs par rapport aux bords du formulaire */
+  padding: 2px 0 2px 10px;                                      /* Padding des inputs par rapport aux bords du formulaire */
+  width: 90%;                                                   /* Largeur de 90% par rapport au formulaire */
+  background-color: transparent;                                /* Couleur de fond transparente */
+  border: 1px solid rgb(77, 77, 77, 0.5);                     /* Bordure des inputs */
+  border-radius: 8px;                                           /* Arrondir les bords */
+  color: white;                                               /* Couleur du texte écrit par l'utilisateur */
+}
+/*? Placeholder des inputs */
+::placeholder {
+  color: rgb(77, 77, 77 0,5);                                   /* Couleur du texte */
+}
+/*? = Bouton envoyer du formulaire = */
+form button[type="submit"] {
+  margin: 10px 15px;                                            /* Margin du bouton par rapport aux bords du formulaire */
+  padding: 10px 0;                                              /* Padding du bouton par rapport aux bords du formulaire */ 
+  width: 90%;                                                   /* Largeur de 90% par rapport au formulaire */
+  background-color: rgb(77, 77, 77);                          /* Couleur de fond */
+  border: none;                                                 /* Pas de bordure */
+  border-radius: 8px;                                           /* Arrondir les bords */
+  color: white;                                               /* Couleur du texte */
+  font-weight: 700;                                             /* Gras du texte */
+  cursor: pointer;                                              /* Curseur pointer */
+}
+/*? === === Footer === === */
+footer p {
+  padding-top: 2rem;
+}
+}
+
+@media screen and (min-width: 776px) {                          /*! Entre 776px et 1000px */
+/*? === === Globals === === */
+.main-container {
+  width: 70%;                                                   /* Largeur de 70% par rapport au window */
+}
+h1 {
+  font-size: 1.7em;                                             /* Taille du titre */
+}
+h2 {
+  font-size: 1.2em;                                             /* Taille des sous-titres */
+}
+h3 {
+  font-size: 1em;                                               /* Taille des sous-sous-titres */
+}
+p, a, li {
+  font-size: 0.8em;                                             /* Taille du texte */
+}
+/*? == Texte plus gros == */
+.large {
+  font-size: 1rem;
+}
+/*? === === Header === === */
+/*? == Gestion du header mobile == */
+.header-small {
+  display: none;                                              /* Ne pas afficher le header mobile */
+}
+/*? == Réglages généraux == */
+.header-large {
+  display: flex;                                                /* Affichage en flex */
+  justify-content: space-around;                                /* Répartition des éléments */
+  align-items: center;                                          /* Alignement des éléments */
+  position: fixed;                                              /* Positionnement fixe */
+  top: 0;                                                       /* Positionnement en haut */
+  left: 0;                                                      /* Positionnement à gauche */
+  right: 0;                                                     /* Positionnement à droite */
+  height: 60px;                                                 /* Hauteur du header */
+  z-index: 10;                                                  /* Z-index pour que le header soit au dessus des autres éléments */
+  background-color: rgba(10, 10, 10, 0.94);                   /* Couleur de fond et opacité */
+  transition: transform 0.6s ease-in-out;                       /* Transition de 0.6s pour le header */
+}
+/*? == Liens du header == */
+.large-main_link {
+  list-style: none;                                             /* Suppression des puces */
+  font-size: .7em;                                              /* Taille du texte */
+}
+.large-main_link:visited {
+  color: white;                                               /* Couleur du texte visité */
+}
+/*? = Mise en forme des liens = */
+.large-main_link > a {
+  padding: 23px;                                                /* Padding des liens, pour la zone de survol plus large */
+}
+.large-main_link > a:hover {
+  position: relative;                                           /* Positionnement relatif pour les sub link en absolu */
+  color: rgba(222, 184, 135, 0.685);                          /* Couleur du texte au survol */
+}
+/*? == Reaction au survol des liens == */
+.large-main_link:hover .large-sub, .large-sub:hover {
+  display: block;                                               /* Affichage du menu déroulant */
+}
+/*? == Mise en forme des sous-liens == */
+.large-sub {
+  display: none;                                                /* Menu déroulant caché par défaut */
+  position: absolute;                                           /* positionner le menu déroulant de manière absolue */
+  top: 60px;                                                    /* Positionne les sous liens, sous la barre header de 60px */
+  padding: 5px 20px 10px;                                           /* Padding des sous liens */
+  z-index: 1;                                                   /* définir la profondeur de la pile pour s'assurer que le menu déroulant est au-dessus de tout autre élément */
+  background-color: rgb(10, 10, 10, 0.94);                        /* Couleur de fond et opacité */
+  border-radius: 0 0 10px 10px;                                          /* Arrondi des bords */
+}
+.large-sub_link {
+  list-style: none;                                             /* Suppression des puces */
+}
+.large-sub_link > a:hover {
+  color: rgb(222, 184, 135);                                  /* Couleur du texte au survol */
+  text-decoration: underline;                                   /* Soulignement du texte au survol */
+}
+
+/*? === Gestion du modal de contact === */
+/*? == Style du modal agrandie == */
+#modal-form {
+  width: 85%;                                                   /* Largeur totale par rapport au window */
+}
+/*? == Partie haute == */
+.modal-up {
+  display: flex;                                                /* Affichage en flex */
+  justify-content: center;                                      /* Centrer horizontalement */
+  align-items: center;                                          /* Centrer verticalement */
+}
+/*? = Partie haute textes = */
+.modal-up_infos {
+  padding: 0 25px;                                             /* Padding de 25px à gauche et à droite pour écarter les images*/
+  text-align: center;                                           /* Centrer le texte */
+}
+/*? = Images de la partie haute = */
+.modal-up img {
+  width: 140px;                                                 /* Largeur des images */
+  height: 140px;                                                /* Hauteur des images */
+  border-radius: 50%;                                           /* Arrondir les images */
+}
+/*? == Partie du milieu == */
+.modal-middle {
+  margin: 30px 0;                                               /* Margin de 20px en haut et en bas pour écarter les parties hautes et basses */
+  text-align: center;                                           /* Centrer le texte */
+}
+/*? == Partie basse == */
+.modal-down {
+  display: flex;                                                /* Affichage en flex */
+  justify-content: center;                                      /* Centrer horizontalement */
+  align-items: flex-start;                                      /* Aligner verticalement */
+}
+/*? = Partie basse gauche et droite = */
+.modal-down_infos, .modal-down_formation {
+  width: 30%;                                                  /* Largeur de 30% par rapport à la partie basse */
+}
+/*? = Texte de la partie basse = */
+.modal-down_text {
+  text-align: center;                                           /* Centrer le texte */
+}
+/*? = Partie basse formulaire = */
+.modal-down_contact {
+  margin: 0 10px;                                               /* Margin de 10px à gauche et à droite pour écarter les parties gauche et droite */
+  width: 40%;                                                   /* Largeur de 40% par rapport à la partie basse */
+  max-width: 250px;                                             /* Dans une limite de 250px */
+  border: 1px solid rgb(77, 77, 77);                          /* Bordure de 1px de couleur rgb(77, 77, 77) */
+  border-radius: 10px;                                          /* Arrondir les bords */
+}
+/*? = Partie basse formulaire titre = */
+form h2 {
+  margin-top: 10px;                                             /* Margin de 10px en haut pour s'écarter du bord du formulaire */
+  color: rgb(77, 77, 77 0,5);                                   /* Couleur du texte */
+  text-align: center;                                           /* Centrer le texte */
+  font-weight: 700;                                             /* Épaisseur du texte */
+}
+/*? = Partie basse formulaire input et textarea = */
+form input, form textarea {
+  margin: 3px 15px;                                             /* Margin des inputs par rapport aux bords du formulaire */
+  padding: 2px 0 2px 10px;                                      /* Padding des inputs par rapport aux bords du formulaire */
+  width: 90%;                                                   /* Largeur de 90% par rapport au formulaire */
+  background-color: transparent;                                /* Couleur de fond transparente */
+  border: 1px solid rgb(77, 77, 77, 0.5);                     /* Bordure des inputs */
+  border-radius: 8px;                                           /* Arrondir les bords */
+  color: white;                                               /* Couleur du texte écrit par l'utilisateur */
+}
+/*? Placeholder des inputs */
+::placeholder {
+  color: rgb(77, 77, 77 0,5);                                   /* Couleur du texte */
+}
+/*? = Bouton envoyer du formulaire = */
+form button[type="submit"] {
+  margin: 10px 15px;                                            /* Margin du bouton par rapport aux bords du formulaire */
+  padding: 10px 0;                                              /* Padding du bouton par rapport aux bords du formulaire */ 
+  width: 90%;                                                   /* Largeur de 90% par rapport au formulaire */
+  background-color: rgb(77, 77, 77);                          /* Couleur de fond */
+  border: none;                                                 /* Pas de bordure */
+  border-radius: 8px;                                           /* Arrondir les bords */
+  color: white;                                               /* Couleur du texte */
+  font-weight: 700;                                             /* Gras du texte */
+  cursor: pointer;                                              /* Curseur pointer */
+}
+/*? === === Footer === === */
+footer p {
+  padding-top: 1rem;
+}
+}
+
+@media screen and (min-width: 1000px) {                         /*! A partir de 1000px */
+/*? === === Globals === === */
+.main-container {
+  width: 70%;
+}
+h1 {
+  font-size: 1.9em;                                             /* Taille du titre */
+}
+h2 {
+  font-size: 1.4em;                                             /* Taille des sous-titres */
+}
+h3 {
+  font-size: 1.2em;                                               /* Taille des sous-sous-titres */
+}
+p, a, li {
+  font-size: 1em;                                             /* Taille du texte */
+}
+/*? == Texte plus gros == */
+.large {
+  font-size: 1.2rem;
+}
+
+/*? === Header === */
+/*? === Gestion du modal de contact === */
+/*? === Style du modal agrandie === */
+#modal-form {
+  width: 75%;                                                 /* Largeur totale par rapport au window */
+}
+}
+
+@media screen and (min-width: 1200px) {                         /*! A partir de 1200px */
+/*? === === Globals === === */
+.main-container {
+  width: 65%;                                                   /* Largeur totale par rapport au window */
+}
+h1 {
+  font-size: 2.1em;                                             /* Taille du titre */
+}
+h2 {
+  font-size: 1.6em;                                             /* Taille des sous-titres */
+}
+h3 {
+  font-size: 1.4em;                                               /* Taille des sous-sous-titres */
+}
+p, a, li {
+  font-size: 1.2em;                                             /* Taille du texte */
+}
+/*? == Texte plus gros == */
+.large {
+  font-size: 1.4rem;
+}
+
+
+/*? === Gestion du modal de contact === */
+/*? === Style du modal agrandie === */
+#modal-form {
+  width: 70%;                                                   /* Largeur totale par rapport au window */
+}
+}
+
+@media screen and (min-width: 1500px) {                         /*! A partir de 1200px */
+/*? === === Globals === === */
+.main-container {
+  max-width: 1500px;                                                   /* Largeur totale par rapport au window */
+}
+h1 {
+  font-size: 2.3em;                                             /* Taille du titre */
+}
+h2 {
+  font-size: 1.9em;                                             /* Taille des sous-titres */
+}
+h3 {
+  font-size: 1.7em;                                               /* Taille des sous-sous-titres */
+}
+p, a, li {
+  font-size: 1.5em;                                             /* Taille du texte */
+}
+/*? == Texte plus gros == */
+.large {
+  font-size: 1.7rem;
+}
+}
